@@ -141,11 +141,15 @@ footer img {
 /* ADMIN */
 
 /* Gestion articles */
-#tableauGestionArticles {
+#tableauGestionArticles,
+#tableauGestionComm {
   border: 1px solid darkgrey;
   border-collapse: collapse;
 }
-#tableauGestionArticles td {
+#tableauGestionArticles td,
+#tableauGestionComm td,
+#tableauGestionArticles th,
+#tableauGestionComm th {
   border: 1px solid darkgrey;
   height: 5rem;
 }

@@ -8,11 +8,12 @@ session_start();
 		$login=htmlspecialchars($_POST['login']);
 		$mdps=htmlspecialchars($_POST['password']);
 		if($login=='tata'&& $mdps=='minet'){
-			$_SESSION['login']='tata';
+			$_SESSION['admin'] = 'tata';
 		}
 		else{
 			session_destroy();
 		}
 	}
 
-include"admin/phtml/admin.phtml";
+include "header.php";
+include "admin/phtml/admin.phtml";

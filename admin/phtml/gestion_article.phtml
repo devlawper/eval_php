@@ -1,45 +1,49 @@
   <body>
   <main>
-  	<h1> bienvenue Admin</h1> <a href="deconnecte.php">deconnexion</a>
-  	<h2> Gerer mes articles</h2>
-  	<button><a href="ajout_article.php">Ajout article</a></button>
-        <table id="tableauGestionArticles" class="container">
-					<thead>
-						<tr>
-							<th>Titre</th>
-							<th>Description</th>
-							<th>Image</th>
-							<th>Date de création</th>
-							<th>Publie</th>
-							<th>Nombre visites</th>
-							<th>Nombre commentaires</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($articles as $article):?>
-						<tr>
-							<td><?=$article['titre']?></td>
-							<td><?=$article['description']?></td>
-							<td><img src="../img/<?=$article['image']?>"></td>
-							<td><?=$article['date_creation']?></td>
-							<td><?=$article['publie']?></td>
-							<td><?=$article['nb_visites']?></td>
-							<td><?=$article['nb_comm']?></td>
-							<td id="publication">
-                <?php if ($article['publie'] == 0): ?>
-                  <a href="ajax/publier_article.php?id=<?= $article['id'] ?>">Valider</a><br>
-                <?php else: ?>
-                  <a href="ajax/depublier_article.php?id=<?= $article['id'] ?>">Dépublier</a><br>
-                <?php endif; ?>
-                  <a href="ajax/supprimer_article.php?id=<?= $article['id'] ?>">Supprimer</a>
-                  <a href="modif_article.php?id=<?= $article['id'] ?>">Modifer</a>
-							</td>
-						</tr>
-						<?php endforeach;?>
-				</tbody>
-			</table>
-		</div>
+    <?php if (isset($_SESSION['admin'])): ?>
+      <h1> bienvenue Admin</h1> <a href="deconnecte.php">deconnexion</a>
+    	<h2> Gerer mes articles</h2>
+    	<button><a href="ajout_article.php">Ajout article</a></button>
+          <table id="tableauGestionArticles" class="container">
+  					<thead>
+  						<tr>
+  							<th>Titre</th>
+  							<th>Description</th>
+  							<th>Image</th>
+  							<th>Date de création</th>
+  							<th>Publie</th>
+  							<th>Nombre visites</th>
+  							<th>Nombre commentaires</th>
+  							<th>Actions</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<?php foreach ($articles as $article):?>
+  						<tr>
+  							<td><?=$article['titre']?></td>
+  							<td><?=$article['description']?></td>
+  							<td><img src="../img/<?=$article['image']?>"></td>
+  							<td><?=$article['date_creation']?></td>
+  							<td><?=$article['publie']?></td>
+  							<td><?=$article['nb_visites']?></td>
+  							<td><?=$article['nb_comm']?></td>
+  							<td id="publication">
+                  <?php if ($article['publie'] == 0): ?>
+                    <a href="ajax/publier_article.php?id=<?= $article['id'] ?>">Valider</a><br>
+                  <?php else: ?>
+                    <a href="ajax/depublier_article.php?id=<?= $article['id'] ?>">Dépublier</a><br>
+                  <?php endif; ?>
+                    <a href="ajax/supprimer_article.php?id=<?= $article['id'] ?>">Supprimer</a>
+                    <a href="modif_article.php?id=<?= $article['id'] ?>">Modifer</a>
+  							</td>
+  						</tr>
+  						<?php endforeach;?>
+  				</tbody>
+  			</table>
+  		</div>
+    <?php else:
+      header('location:../admin.php');
+    endif; ?>
 	</main>
 </body>
 

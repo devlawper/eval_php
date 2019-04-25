@@ -1,9 +1,12 @@
 <?php
+session_start();
 require "../database.php";
 
 $query=$bdd->prepare(
-  "SELECT id, pseudo, email, commentaire, id_article, date, publie
-  FROM commentaires");
+  "SELECT commentaires.id, pseudo, email, commentaire, id_article, date, commentaires.publie, titre
+  FROM commentaires
+  INNER JOIN articles
+  ON commentaires.id_article=articles.id");
  $query->execute();
  $commentaires=$query->fetchAll();
 

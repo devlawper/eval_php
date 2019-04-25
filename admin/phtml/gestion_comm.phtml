@@ -1,7 +1,8 @@
 <main>
+    <?php if (isset($_SESSION['admin'])): ?>
   	<h1> bienvenue Admin</h1> <a href="deconnecte.php">deconnexion</a>
   	<h2> Gerer mes articles</h2>
-  	        <table>
+        <table id="tableauGestionComm" class="container">
 					<thead>
 						<tr>
 							<th>Pseudo</th>
@@ -19,7 +20,7 @@
 							<td><?=$commentaire['pseudo']?></td>
 							<td><?=$commentaire['email']?></td>
 							<td><?=$commentaire['commentaire']?></td>
-							<td></td>
+							<td><?=$commentaire['titre']?></td>
 							<td><?=$commentaire['date']?></td>
 							<td><?=$commentaire['publie']?></td>
               <td id="publication">
@@ -35,4 +36,7 @@
 				</tbody>
 			</table>
 		</div>
+  <?php else:
+    header('location:../admin.php');
+  endif; ?>
 	</main>

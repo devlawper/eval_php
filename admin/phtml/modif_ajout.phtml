@@ -1,10 +1,11 @@
 <main>
+	<?php if (isset($_SESSION['admin'])): ?>
 	<section id="modifSoin" class="container">
       <?php if (isset($_GET['id'])): ?>
-        <h1>Modifier un soin</h1>
+        <h1>Modifier un article</h1>
         <form action="modif_article.php?id=<?= $_GET['id'] ?>" method="post" enctype="multipart/form-data">
       <?php else: ?>
-        <h1>Ajouter un soin</h1>
+        <h1>Ajouter un article</h1>
         <form action="ajout_article.php" method="post" enctype="multipart/form-data">
       <?php endif; ?>
 		<fieldset>
@@ -35,4 +36,7 @@
 
 			<button type="submit" value="ajouter">ajouter</button>
 		</fieldset>
+	<?php else:
+		header('location:../admin.php');
+	endif; ?>
 	</main>
