@@ -140,6 +140,22 @@ footer img {
 
 /* ADMIN */
 
+/* Navigation */
+#navAdmin {
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 0.5%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+#navAdmin ul {
+  display: flex;
+  justify-content: space-around;
+}
+#navAdmin ul li {
+  list-style-type: none;
+}
+
 /* Gestion articles */
 #tableauGestionArticles,
 #tableauGestionComm {

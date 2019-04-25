@@ -9,6 +9,7 @@ session_start();
 		$mdps=htmlspecialchars($_POST['password']);
 		if($login=='tata'&& $mdps=='minet'){
 			$_SESSION['admin'] = 'tata';
+			header('location:admin/tableau_de_bord.php');
 		}
 		else{
 			session_destroy();
@@ -16,4 +17,4 @@ session_start();
 	}
 
 include "header.php";
-include "admin/phtml/admin.phtml";
+include "phtml/admin.phtml";

@@ -10,7 +10,5 @@ $query=$bdd->prepare(
  $query->execute(array());
  $articles=$query->fetchAll();
 
-
-
 include "header.php";
 include "phtml/gestion_article.phtml";

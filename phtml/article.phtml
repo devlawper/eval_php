@@ -3,9 +3,9 @@
     <h2><?= $article['titre'] ?></h2>
     <img src="img/<?= $article['image'] ?>" alt="<?= $article['titre'] ?>">
     <?= $article['description'] ?>
-    <button id="ecrireComm" type="button" name="button">Ajouter un commentaire</button>
+    <a class="button" id="ecrireComm" type="button" name="button">Ajouter un commentaire</a>
     <?php if (isset($_SESSION['admin'])): ?>
-      <a href="modif_article.php">Modifier cet article</a>
+      <a class="button" href="admin/modif_article.php?id=<?= $article['id'] ?>">Modifier cet article</a>
     <?php endif; ?>
   </section>
   <div class="clear"></div>

@@ -18,4 +18,5 @@ if(isset($_POST['titre'])){
     $query->execute(array($titre,$desc,$photo_chargee, $publie));
     header("location:gestion_article.php");
  }
+ include "header.php";
  include "phtml/modif_ajout.phtml";

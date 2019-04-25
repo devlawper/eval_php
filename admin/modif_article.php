@@ -28,7 +28,5 @@ $image=$article['image'];
     header("location:gestion_article.php");
 	}
 
-
-
-
+include "header.php";
 include "phtml/modif_ajout.phtml";

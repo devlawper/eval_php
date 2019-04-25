@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "database.php";
 
 // *** Selection de l'article demandé ***

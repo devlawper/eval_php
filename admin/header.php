@@ -9,6 +9,13 @@
   </head>
   <body>
     <header>
-      <a href="index.php"><img src="../img/logo.png" alt="Logo"></a>
-      <h1>Bienvenue sur le blog de Fitdev !</h1>
+      <a href="../index.php"><img src="../img/logo.png" alt="Logo"></a>
+      <h1>Back-office du blog de Fitdev</h1>
+      <nav id="navAdmin" class="container">
+        <ul>
+          <li><a href="tableau_de_bord.php">Tableau de bord</a></li>
+          <li><a href="gestion_article.php">Gestion des articles</a></li>
+          <li><a href="gestion_comm.php">Gestion des commentaires</a></li>
+        </ul>
+      </nav>
     </header>
