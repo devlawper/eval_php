@@ -20,11 +20,12 @@ function confirmDepublier(){
 
 
 
-$(function(){	
+$(function(){
+
 	if ($(".publication").text() == "Dépublier") {
-		$(".publication").on("click", publier);
+		$(".publication").on("click", depublier);
 	}
 	else {
-		$(".publication").on("click", depublier);
+		$(".publication").on("click", publier);
 	}
 })

@@ -11,10 +11,10 @@ if(isset($_POST['titre'])){
 	$image = move_uploaded_file($_FILES['image']['tmp_name'], "../img/".basename($photo_chargee));
 	$publie=$_POST['publie'];
 
-	$query=$bdd->prepare("
-		  INSERT INTO articles(titre, description, image,date_creation, publie) 
-		  VALUES(?,?,?,NOW(),?)");
-    $query->execute(array($titre,$desc,$image, $publie));
-    var_dump($query->errorInfo());
+	$query=$bdd->prepare(
+		"INSERT INTO articles(titre, description, image,date_creation, publie)
+		 VALUES(?,?,?,NOW(),?)");
+    $query->execute(array($titre,$desc,$photo_chargee, $publie));
+    header("location:gestion_article.php");
  }
- include "modif_ajout.phtml";
+ include "phtml/modif_ajout.phtml";

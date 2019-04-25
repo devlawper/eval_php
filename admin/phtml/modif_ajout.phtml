@@ -22,10 +22,17 @@
 			</p>
 			<p>
 				<p><label>publié</label></p>
-				<input type="radio" name="publie" value="1" <?php if($article["publie"]==1){echo "checked";} ?>>oui<input type="radio" name="publie" value="0" <?php if($article["publie"]==0){echo "checked";} ?>>non
-			</p>			
-			
-			
+				<?php if (isset($_GET['id'])): ?>
+					<input type="radio" name="publie" value="1" <?php if($article["publie"]==1){echo "checked";} ?>>oui
+					<input type="radio" name="publie" value="0" <?php if($article["publie"]==0){echo "checked";} ?>>non
+	      <?php else: ?>
+					<input type="radio" name="publie" value="1">oui
+					<input type="radio" name="publie" value="0">non
+	      <?php endif; ?>
+
+			</p>
+
+
 			<button type="submit" value="ajouter">ajouter</button>
-		</fieldset>					
+		</fieldset>
 	</main>

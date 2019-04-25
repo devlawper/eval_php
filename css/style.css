@@ -137,6 +137,18 @@ footer img {
   width: 30%;
   float: left;
 }
-footer p {
 
+/* ADMIN */
+
+/* Gestion articles */
+#tableauGestionArticles {
+  border: 1px solid darkgrey;
+  border-collapse: collapse;
+}
+#tableauGestionArticles td {
+  border: 1px solid darkgrey;
+  height: 5rem;
+}
+#tableauGestionArticles img {
+  width: 100%;
 }
