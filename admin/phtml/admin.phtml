@@ -1,0 +1,18 @@
+  <body>
+  	<main>
+      <?php if(isset($_SESSION['login'])&& $_SESSION['login']=='tata'):?>
+      <h2>tableau de bord</h2>
+      <h2>bonjour Admin <a>deconnexion</a></h2>
+      <?php else: ?>
+    	<h2>connexion Admin</h2>
+    	<form action="admin.php" method="post">
+    		<label for="nom">login</label>
+    		<input type="text"name="login">
+    		<label for="pass">mot de passe:</label>
+    		<input type="password" id="pass" name="password">
+    		<button>Se connecter</button>
+    	</form>
+    <?php endif;?>
+</main>
+</body>
+</html>

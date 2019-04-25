@@ -1,0 +1,31 @@
+<main>
+	<section id="modifSoin" class="container">
+      <?php if (isset($_GET['id'])): ?>
+        <h1>Modifier un soin</h1>
+        <form action="modif_article.php?id=<?= $_GET['id'] ?>" method="post" enctype="multipart/form-data">
+      <?php else: ?>
+        <h1>Ajouter un soin</h1>
+        <form action="ajout_article.php" method="post" enctype="multipart/form-data">
+      <?php endif; ?>
+		<fieldset>
+			<p>
+				<label>titre</label>
+				<input class="name" type="text" name="titre" value="<?=$titre?>"/>
+			</p>
+			<p>
+				<label>Description</label></p>
+				<textarea name="desc" rows="8" cols="80" ><?=$desc?></textarea>
+            </p>
+			<p>
+				<label>photo</label>
+				<input type="file" name="image" value="<?=$image?>">
+			</p>
+			<p>
+				<p><label>publié</label></p>
+				<input type="radio" name="publie" value="1" <?php if($article["publie"]==1){echo "checked";} ?>>oui<input type="radio" name="publie" value="0" <?php if($article["publie"]==0){echo "checked";} ?>>non
+			</p>			
+			
+			
+			<button type="submit" value="ajouter">ajouter</button>
+		</fieldset>					
+	</main>

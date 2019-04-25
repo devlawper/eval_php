@@ -1,0 +1,32 @@
+    <main id="index" class="container">
+      <section id="last_articles">
+        <h2>Les derniers articles </h2>
+        <article class="last_articles">
+          <?php foreach ($articles as $article): ?>
+            <p><a href="article.php?id=<?= $article['id'] ?>"><?= $article['titre'] ?></a></p>
+          <?php endforeach; ?>
+        </article>
+      </section>
+
+      <section id="promu">
+
+        <?php foreach ($promus as $promu): ?>
+          <article class="promu">
+            <a href="article.php?id=<?= $promu['id'] ?>"><img src="img/<?= $promu['image'] ?>" alt="<?= $promu['titre'] ?>"></a>            
+            <h2><?= $promu['titre'] ?></h2>
+            <p><?= substr($promu['description'], 0, 200)."..." ?></p>
+            <p>Commentaire(s) : <span><?= $promu['nb_comm'] ?></span></p>
+            <a class="button" href="article.php?id=<?= $promu['id'] ?>">Lire la suite</a>
+          </article>
+        <?php endforeach; ?>
+      </section>
+
+      <section id="last_comm">
+        <h2>Les derniers commentaires</h2>
+        <article class="last_comm">
+          <?php foreach ($commentaires as $commentaire): ?>
+            <p><?= $commentaire['commentaire'] ?></p>
+          <?php endforeach; ?>
+        </article>
+      </section>
+    </main>

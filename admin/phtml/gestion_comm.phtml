@@ -1,0 +1,42 @@
+<main>
+  	<h1> bienvenue Admin</h1> <a href="deconnecte.php">deconnexion</a>
+  	<h2> Gerer mes articles</h2>
+  	        <table>
+					<thead>
+						<tr>
+							
+							<th>
+								pseudo
+							</th>
+							<th>
+								email
+							</th>
+							<th>
+								commentaire
+							</th>
+							<th>
+								id_article
+							</th>
+							<th>
+								date
+							</th>
+							<th>
+								publie
+							</th>
+							</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($article as $art):?>
+						<tr>
+							<td><?=$art['pseudo_comm']?></td>
+							<td><?=$art['email_comm']?></td>
+							<td><?=$art['comment_comm']?></td>
+							<td><?=$art['id_art_comm']?></td>
+							<td><?=$art['date_comm']?></td>
+							<td><?=$art['publie_comm']?></td>
+						</tr>
+					<?php endforeach;?>
+				</tbody>
+			</table>
+		</div>
+	</main>
