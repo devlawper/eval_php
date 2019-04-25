@@ -10,12 +10,20 @@ $query = $bdd -> prepare(
 $query -> execute(array($_GET['id']));
 $article = $query -> fetch();
 
+// *** Affichage des commentaires publié de l'article ***
 $query = $bdd -> prepare(
   "SELECT pseudo, commentaire, id_article, date
   FROM commentaires
   WHERE id_article = ? && publie = 1");
 $query -> execute(array($_GET['id']));
 $commentaires = $query -> fetchAll();
+
+// *** Incrémentation du nb de visites ***
+$query=$bdd->prepare(
+	"UPDATE articles
+	SET nb_visites = nb_visites + 1
+	WHERE id = ?");
+$query->execute(array($_GET['id']));
 
 include "header.php";
 include "phtml/article.phtml";
