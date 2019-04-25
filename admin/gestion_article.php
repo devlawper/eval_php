@@ -12,5 +12,5 @@ $query=$bdd->prepare("
 
 
 
-include "../header.php";
+include "header.php";
 include "phtml/gestion_article.phtml";

@@ -1,6 +1,6 @@
 <?php
 
-require "../database.php";
+require "database.php";
 
 // connexion a ma base de données
 session_start();
@@ -15,4 +15,4 @@ session_start();
 		}
 	}
 
-include"phtml/admin.phtml";
+include"admin/phtml/admin.phtml";

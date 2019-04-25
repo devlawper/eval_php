@@ -6,7 +6,7 @@
   	        <table>
 					<thead>
 						<tr>
-							
+
 							<th>
 								titre
 							</th>
@@ -38,13 +38,13 @@
 						<tr>
 							<td><?=$article['titre']?></td>
 							<td><?=$article['description']?></td>
-							<td><img src="../<?=$article['image']?>"></td>
+							<td><img src="../img/<?=$article['image']?>"></td>
 							<td><?=$article['date_creation']?></td>
 							<td><?=$article['publie']?></td>
 							<td><?=$article['nb_visites']?></td>
 							<td><?=$article['nb_comm']?></td>
 							<td id="publication">
-								<?php if ($article['publie']==0):?> 
+								<?php if ($article['publie']==0):?>
 									<span data-id="<?= $article['id'] ?>"class="publication">Publier</span>
 								<?php else:?>
 									<span data-id="<?= $article['id'] ?>"class="publication">Dépublier</span>
