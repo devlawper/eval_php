@@ -12,13 +12,4 @@ $query = $bdd -> prepare(
   VALUES (?,?,?,?,NOW())');
 $query -> execute(array($nom, $email, $comm, $id));
 
-// *** Incremente le commentaires dans la base de donnée ***
-$query = $bdd -> prepare(
-  "UPDATE articles
-  SET nb_comm = nb_comm + 1
-  WHERE id = ?
-  ");
-$query -> execute(array($id));
-$promus = $query -> fetchAll();
-
 ?>

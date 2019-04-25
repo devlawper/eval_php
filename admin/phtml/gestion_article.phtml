@@ -1,8 +1,9 @@
   <body>
-  <main>
+  <main class="container">
     <?php if (isset($_SESSION['admin'])): ?>
-      <h1> bienvenue Admin</h1> <a href="deconnecte.php">deconnexion</a>
-    	<h2> Gerer mes articles</h2>
+      <h1>Bienvenue Admin</h1>
+      <a href="deconnecte.php">Déconnexion</a>
+    	<h2>Gerer mes articles</h2>
     	<button><a href="ajout_article.php">Ajout article</a></button>
           <table id="tableauGestionArticles" class="container">
   					<thead>
@@ -23,8 +24,10 @@
   							<td><?=$article['titre']?></td>
   							<td><?=$article['description']?></td>
   							<td><img src="../img/<?=$article['image']?>"></td>
-  							<td><?=$article['date_creation']?></td>
-  							<td><?=$article['publie']?></td>
+  							<td><?= strftime('%d %h %Y', strtotime($article['date_creation']));?></td>
+  							<td><?php if ($article['publie'] == 1): ?>Oui
+                <?php else: ?>Non
+                <?php endif; ?></td>
   							<td><?=$article['nb_visites']?></td>
   							<td><?=$article['nb_comm']?></td>
   							<td id="publication">
