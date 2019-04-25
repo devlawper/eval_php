@@ -4,36 +4,32 @@
   	        <table>
 					<thead>
 						<tr>
-							
-							<th>
-								pseudo
-							</th>
-							<th>
-								email
-							</th>
-							<th>
-								commentaire
-							</th>
-							<th>
-								id_article
-							</th>
-							<th>
-								date
-							</th>
-							<th>
-								publie
-							</th>
+							<th>Pseudo</th>
+							<th>Email</th>
+              <th>Commentaire</th>
+              <th>Titre article</th>
+              <th>date</th>
+							<th>publie</th>
+							<th>Actions</th>
 							</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($article as $art):?>
+						<?php foreach ($commentaires as $commentaire):?>
 						<tr>
-							<td><?=$art['pseudo_comm']?></td>
-							<td><?=$art['email_comm']?></td>
-							<td><?=$art['comment_comm']?></td>
-							<td><?=$art['id_art_comm']?></td>
-							<td><?=$art['date_comm']?></td>
-							<td><?=$art['publie_comm']?></td>
+							<td><?=$commentaire['pseudo']?></td>
+							<td><?=$commentaire['email']?></td>
+							<td><?=$commentaire['commentaire']?></td>
+							<td></td>
+							<td><?=$commentaire['date']?></td>
+							<td><?=$commentaire['publie']?></td>
+              <td id="publication">
+                <?php if ($commentaire['publie'] == 0): ?>
+                  <a href="ajax/publier_comm.php?id=<?= $commentaire['id'] ?>">Valider</a><br>
+                <?php else: ?>
+                  <a href="ajax/depublier_comm.php?id=<?= $commentaire['id'] ?>">Dépublier</a><br>
+                <?php endif; ?>
+                  <a href="ajax/supprimer_comm.php?id=<?= $commentaire['id'] ?>">Supprimer</a>
+							</td>
 						</tr>
 					<?php endforeach;?>
 				</tbody>
