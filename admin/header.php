@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <a href="../index.php"><img src="../img/logo.png" alt="Logo"></a>
+      <a href="../index.php"><img src="../img/logo1.png" alt="Logo"></a>
       <h1>Back-office du blog de Fitdev</h1>
       <nav id="navAdmin" class="container">
         <ul>

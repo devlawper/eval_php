@@ -77,6 +77,9 @@ header h1 {
   display: flex;
   justify-content: space-between;
 }
+#index h2 {
+  font-size: 1.5rem;
+}
 #last_articles {
   color: white;
   flex-basis: 29%;
@@ -236,11 +239,15 @@ footer img {
 
 /* Navigation */
 #navAdmin {
-  background-color: white;
+  background-color: #304D66;
   font-size: 1.5rem;
   padding: 0.5%;
-  border: 1px solid black;
+  border: 1px solid white;
+  box-shadow: 2px 2px 2px white;
   border-radius: 5px;
+}
+#navAdmin a {
+  color: white;
 }
 #navAdmin ul {
   display: flex;
