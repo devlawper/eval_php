@@ -26,3 +26,4 @@ require "database.php";
 
 include "header.php";
 include "phtml/admin.phtml";
+include "footer.php";

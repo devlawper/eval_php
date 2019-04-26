@@ -217,6 +217,23 @@ footer img {
 
 /* ADMIN */
 
+/* Connection */
+.connectAdmin p {
+ display: flex;
+}
+.connectAdmin p label {
+  flex-basis: 10%;
+}
+.connectAdmin p input {
+  flex-basis: 30%;
+  padding: 0.5%;
+  border: 1.5px solid #304D66;
+  border-radius: 3px;
+}
+.connectAdmin button {
+  padding: 0.5% 2%;
+}
+
 /* Navigation */
 #navAdmin {
   background-color: white;
