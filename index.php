@@ -41,7 +41,7 @@ foreach ($times_connect as $time_connect) {
 
 // *** Selection des 3 derniers articles mis en évidence ***
 $query = $bdd -> prepare(
-  "SELECT id, titre, description, image, date_creation, nb_comm
+  "SELECT id, titre, description, image, date_creation, nb_comm, nb_visites
   FROM articles
   WHERE publie = 1
   ORDER BY date_creation DESC
