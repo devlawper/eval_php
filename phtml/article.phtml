@@ -3,7 +3,7 @@
     <h2><?= $article['titre'] ?></h2>
     <img src="img/<?= $article['image'] ?>" alt="<?= $article['titre'] ?>">
     <?= $article['description'] ?>
-    <a class="button" id="ecrireComm" type="button" name="button">Ajouter un commentaire</a>
+    <a class="button" id="ecrireComm">Ajouter un commentaire</a>
     <?php if (isset($_SESSION['admin'])): ?>
       <a class="button" href="admin/modif_article.php?id=<?= $article['id'] ?>">Modifier cet article</a>
     <?php endif; ?>
@@ -26,20 +26,27 @@
         <textarea id="comm" name="comm" rows="8" cols="80" required></textarea>
       </p>
       <p class="erreur"></p>
-      <button data-id="<?= $_GET['id'] ?>" id="ajoutComm" type="button" name="button">Envoyer</button>
+      <button class="button" data-id="<?= $_GET['id'] ?>" id="ajoutComm" type="button" name="button">Envoyer</button>
     </form>
   </section>
 
   <section>
-    <h2>Commentaires :</h2>
+    <h3>Commentaires :</h3>
     <table id="tableauCommentaires">
-    <?php foreach ($commentaires as $commentaire): ?>
-      <tr>
-        <td><?= $commentaire['date'] ?></td>
-        <td><?= $commentaire['pseudo'] ?></td>
-        <td><?= $commentaire['commentaire'] ?></td>
-      </tr>
-    <?php endforeach; ?>
+      <thead>
+        <th>Date</th>
+        <th>Pseudo</th>
+        <th>Commentaire</th>
+      </thead>
+      <tbody>
+        <?php foreach ($commentaires as $commentaire): ?>
+          <tr>
+            <td><?= $commentaire['date'] ?></td>
+            <td><?= $commentaire['pseudo'] ?></td>
+            <td><?= $commentaire['commentaire'] ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
     </table>
   </section>
 </main>
