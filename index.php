@@ -26,8 +26,8 @@ if ($donnees['nb_visiteurs'] == 0 ) {
   $query -> execute(array($_SERVER["REMOTE_ADDR"],time()));
 }
 
-// *** Si l'IP existe déjà dans la table mais qu'il s'est connecté il y a plus de 5min, on ajoute un entrée ***
-$delai = time() - (60 * 5);
+// *** Si l'IP existe déjà dans la table mais qu'il s'est connecté il y a plus de 24h, on ajoute un entrée ***
+$delai = time() - (60 * 60 * 24);
 foreach ($times_connect as $time_connect) {
   if ($delai > $time_connect['time_connect']) {
     $query = $bdd -> prepare(
@@ -36,6 +36,8 @@ foreach ($times_connect as $time_connect) {
     $query -> execute(array($_SERVER["REMOTE_ADDR"],time()));
   }
 }
+
+////////////////////////////////////
 
 // *** Selection des 3 derniers articles mis en évidence ***
 $query = $bdd -> prepare(

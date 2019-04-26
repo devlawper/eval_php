@@ -1,18 +1,26 @@
 <?php
-
+session_start();
 require "database.php";
 
-// connexion a ma base de données
-session_start();
+// *** Connexion au back-office ***
 	if(isset($_POST['login'])){
 		$login=htmlspecialchars($_POST['login']);
 		$mdps=htmlspecialchars($_POST['password']);
-		if($login=='tata'&& $mdps=='minet'){
-			$_SESSION['admin'] = 'tata';
+
+		$query = $bdd -> prepare(
+		  "SELECT login, password
+		  FROM admin");
+		$query -> execute();
+		$admins = $query -> fetchAll();
+
+		foreach ($admins as $admin) {
+			if($login == $admin['login'] && password_verify($mdps, $admin['password']) ){
+				$_SESSION['admin'] = 'tata';
 			header('location:admin/tableau_de_bord.php');
-		}
-		else{
-			session_destroy();
+			}
+			else {
+				session_destroy();
+			}
 		}
 	}
 

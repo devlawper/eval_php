@@ -1,6 +1,6 @@
 <?php
-$login='admin';
-$password='toto';
+$login='tata';
+$password='minet';
 
 include "database.php";
 $query=$bdd->prepare(

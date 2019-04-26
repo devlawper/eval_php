@@ -1,10 +1,14 @@
 <?php
 session_start();
 require "../database.php";
+
+// *** Initialisation des variables à zéro pour afficher les champs vides ***
 $titre = '';
 $desc='';
 $image='';
 $publie='';
+
+// *** Ajout de l'article en base de donnée avec vérification préalable ***
 if(isset($_POST['titre'])){
 	$titre=$_POST['titre'];
 	$desc=$_POST['desc'];
@@ -18,5 +22,6 @@ if(isset($_POST['titre'])){
     $query->execute(array($titre,$desc,$photo_chargee, $publie));
     header("location:gestion_article.php");
  }
+
  include "header.php";
  include "phtml/modif_ajout.phtml";

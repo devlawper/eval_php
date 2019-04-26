@@ -1,45 +1,44 @@
 <body>
   <main class="container">
-    <?php if (isset($_SESSION['admin'])): ?>
+  <?php if (isset($_SESSION['admin'])): ?>
   	<h1>Bienvenue Admin</h1>
     <a href="deconnecte.php">Déconnexion</a>
   	<h2>Gerer mes commentaires</h2>
-        <table id="tableauGestionComm" class="container">
-					<thead>
-						<tr>
-							<th>Pseudo</th>
-							<th>Email</th>
-              <th>Commentaire</th>
-              <th>Titre article</th>
-              <th>date</th>
-							<th>publie</th>
-							<th>Actions</th>
-							</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($commentaires as $commentaire):?>
-						<tr>
-							<td><?=$commentaire['pseudo']?></td>
-							<td><?=$commentaire['email']?></td>
-							<td><?=$commentaire['commentaire']?></td>
-							<td><?=$commentaire['titre']?></td>
-							<td><?= strftime('%d %h %Y', strtotime($commentaire['date']));?></td>
-              <td><?php if ($commentaire['publie'] == 1): ?>Oui
-              <?php else: ?>Non
-              <?php endif; ?></td>
-              <td id="publication">
-                <?php if ($commentaire['publie'] == 0): ?>
-                  <a href="ajax/publier_comm.php?id=<?= $commentaire['id'] ?>">Valider</a><br>
-                <?php else: ?>
-                  <a href="ajax/depublier_comm.php?id=<?= $commentaire['id'] ?>">Dépublier</a><br>
-                <?php endif; ?>
-                  <a href="ajax/supprimer_comm.php?id=<?= $commentaire['id'] ?>">Supprimer</a>
-							</td>
+      <table id="tableauGestionComm" class="container">
+				<thead>
+					<tr>
+						<th>Pseudo</th>
+						<th>Email</th>
+            <th>Commentaire</th>
+            <th>Titre article</th>
+            <th>date</th>
+						<th>publie</th>
+						<th>Actions</th>
 						</tr>
-					<?php endforeach;?>
-				</tbody>
-			</table>
-		</div>
+				</thead>
+				<tbody>
+				  <?php foreach ($commentaires as $commentaire):?>
+					<tr>
+						<td><?=$commentaire['pseudo']?></td>
+						<td><?=$commentaire['email']?></td>
+						<td><?=$commentaire['commentaire']?></td>
+						<td><?=$commentaire['titre']?></td>
+						<td><?= strftime('%d %h %Y', strtotime($commentaire['date']));?></td>
+            <td><?php if ($commentaire['publie'] == 1): ?>Oui
+            <?php else: ?>Non
+            <?php endif; ?></td>
+            <td id="publication">
+              <?php if ($commentaire['publie'] == 0): ?>
+                <a href="ajax/publier_comm.php?id=<?= $commentaire['id'] ?>">Valider</a><br>
+              <?php else: ?>
+                <a href="ajax/depublier_comm.php?id=<?= $commentaire['id'] ?>">Dépublier</a><br>
+              <?php endif; ?>
+                <a href="ajax/supprimer_comm.php?id=<?= $commentaire['id'] ?>">Supprimer</a>
+						</td>
+					</tr>
+				<?php endforeach;?>
+			</tbody>
+		</table>
   <?php else:
     header('location:../admin.php');
   endif; ?>

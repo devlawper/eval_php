@@ -2,6 +2,7 @@
 session_start();
 require "../database.php";
 
+// *** Afficher tous les commentaires ***
 $query=$bdd->prepare(
   "SELECT commentaires.id, pseudo, email, commentaire, id_article, date, commentaires.publie, titre
   FROM commentaires
@@ -10,6 +11,7 @@ $query=$bdd->prepare(
  $query->execute();
  $commentaires=$query->fetchAll();
 
+// *** Définition de l'affichage local pour la date ***
 setlocale(LC_ALL, 'fr_FR.UTF8', 'fr_FR','fr','fr','fra','fr_FR@euro');
 
 include "header.php";

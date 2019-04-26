@@ -2,6 +2,7 @@
 require "../../database.php";
 $id=$_GET['id'];
 
+// *** Modif valeur de publication dans la base de donnée ***
 $query=$bdd->prepare(
 	"UPDATE commentaires
 	SET publie=?

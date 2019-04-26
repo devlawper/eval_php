@@ -3,6 +3,7 @@ session_start();
 require "../database.php";
 $id= $_GET['id'];
 
+// *** Requète pour préremplissage des champs du formulaire de modif ***
  $query=$bdd->prepare(
    "SELECT id, titre, description, image, publie
    FROM articles
@@ -15,6 +16,7 @@ $desc=$article['description'];
 $publie=$article['publie'];
 $image=$article['image'];
 
+// *** Mise à jour de l'article en base de donnée avec vérification préalable ***
  if(isset($_POST['titre'])){
 	$titre=$_POST['titre'];
 	$desc=$_POST['description'];

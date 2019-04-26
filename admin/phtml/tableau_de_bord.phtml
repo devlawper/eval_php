@@ -1,10 +1,86 @@
 <body>
   <main class="container">
-    <?php if (isset($_SESSION['admin'])): ?>
-      <h1>Bienvenue Admin</h1>
-      <a href="deconnecte.php">Déconnexion</a>
-    	<h2>Tableau de bord</h2>
-      <p>Nb de visite sur le site : <?= $visites['nb_visiteurs'] ?></p>
+  <?php if (isset($_SESSION['admin'])): ?>
+    <h1>Bienvenue Admin</h1>
+    <a href="deconnecte.php">Déconnexion</a>
+  	<h2>Tableau de bord</h2>
+    <h3>A Moderer</h3>
+    <section id="moderer">
+      <table id="tableauGestionComm" class="container">
+        <thead>
+          <tr>
+            <th>Pseudo</th>
+            <th>Email</th>
+            <th>Commentaire</th>
+            <th>Titre article</th>
+            <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($commentaires as $commentaire):?>
+          <tr>
+            <td><?=$commentaire['pseudo']?></td>
+            <td><?=$commentaire['email']?></td>
+            <td><?=$commentaire['commentaire']?></td>
+            <td><?=$commentaire['titre']?></td>
+            <td id="publication">
+              <?php if ($commentaire['publie'] == 0): ?>
+                <a href="ajax/publier_comm.php?id=<?= $commentaire['id'] ?>">Valider</a><br>
+              <?php else: ?>
+                <a href="ajax/depublier_comm.php?id=<?= $commentaire['id'] ?>">Dépublier</a><br>
+              <?php endif; ?>
+                <a href="ajax/supprimer_comm.php?id=<?= $commentaire['id'] ?>">Supprimer</a>
+            </td>
+          </tr>
+        <?php endforeach;?>
+        </tbody>
+      </table>
+    </section>
+    <h3>Stastistiques</h3>
+    <section id="statistiques">
+      <article>
+        <h4>Mes articles les plus vus</h4>
+        <?php foreach ($articles as $article):?>
+        <p><?=$article['titre']?><br>
+        Nombre de vue(s) : <?=$article['nb_visites']?></p>
+      <?php endforeach;?>
+      </article>
+    <div id="statArticle">
+      <article>
+        <h4>Nombres article(s) publiés</h4>
+        <p><?=$publArticles['nb_publie']?></p>
+      </article>
+      <article>
+        <h4>Nombres article(s) non publiés</h4>
+        <p><?=$non_publArticles['nb_non_publie']?></p>
+      </article>
+    </div>
+    <div id="commentaires">
+      <article>
+        <h4>Nombre de visite(s) sur le site</h4>
+        <p><?= $visites['nb_visiteurs'] ?></p>
+        <form action="ajax/reinit_visites.php" method="post">
+          <button type="submit" >réinitialiser</button>
+        </form>
+      </article>
+      <article>
+        <h4>Nombres de commentaire(s)</h4>
+        <p><?=$nb_commentaires['nb_comm']?></p>
+      </article>
+      <article>
+        <h4>Nombres de commentaire(s) en attente de validation</h4>
+        <p><?=$publ_non_commentaires['nb_pucomm']?></p>
+      </article>
+      <article>
+        <h4>Nombres de commentaires supprimé(s)</h4>
+        <p><?= $comm_suppr['compteur']?></p>
+      </article>
+    </div>
+    </section>
+    <div id="gestion_art_comm">
+      <a class="button" href="gestion_article.php">Gestion Articles</a>
+      <a class="button" href="gestion_comm.php">Gestion commentaires</a>
+   </div>
   <?php else:
     header('location:../admin.php');
   endif; ?>
