@@ -19,7 +19,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($articles as $article):?>
-						<tr>
+						<tr id="art<?= $article['id'] ?>">
 							<td><?=$article['titre']?></td>
               <td>
                 <?=substr($article['description'],0, 200)."..."?>
@@ -40,7 +40,7 @@
               <?php else: ?>
                 <span data-id="<?= $article['id'] ?>" class="publication" id="num<?= $article['id']?>">Dépublier</span><br>
               <?php endif; ?>
-                <a href="ajax/supprimer_article.php?id=<?= $article['id'] ?>">Supprimer</a>
+                <span data-id="<?= $article['id'] ?>" class="supprimer" >Supprimer</span>
                 <a href="modif_article.php?id=<?= $article['id'] ?>">Modifer</a>
 							</td>
 						</tr>

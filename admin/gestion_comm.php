@@ -9,7 +9,8 @@ $query=$bdd->prepare(
   INNER JOIN articles
   ON commentaires.id_article=articles.id");
  $query->execute();
- $commentaires=$query->fetchAll();
+ $commentaires_origin = $query->fetchAll();
+ $commentaires = array_reverse($commentaires_origin);
 
 // *** Définition de l'affichage local pour la date ***
 setlocale(LC_ALL, 'fr_FR.UTF8', 'fr_FR','fr','fr','fra','fr_FR@euro');

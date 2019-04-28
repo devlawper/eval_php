@@ -32,7 +32,14 @@ function publierDepublier(){
 ////////////////////////////
 function supprimer() {
 	let id = $(this).data('id');
-	let idSpan = $(this).attr('id');
+	confirm("Voulez vous vraiment supprimer cet article ?");
+  if (true) {
+    $.post('ajax/supprimer_article.php',{id:id}, confirmerSuppression);
+  }
+	function confirmerSuppression(reponse) {
+		reponse = JSON.parse(reponse);
+		$("#art"+reponse).remove();
+	}
 }
 
 // *** Gestionnaire d'évenements ***
