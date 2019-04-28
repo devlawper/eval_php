@@ -1,10 +1,9 @@
   <body>
     <main class="container">
     <?php if (isset($_SESSION['admin'])): ?>
-      <h1>Bienvenue Admin</h1>
-      <a href="deconnecte.php">Déconnexion</a>
-    	<h2>Gerer mes articles</h2>
-    	<button><a href="ajout_article.php">Ajout article</a></button>
+      <a class="button button_light" href="deconnecte.php">Déconnexion</a>
+    	<h2>Gérer mes articles</h2>
+    	<p><a class="button button_light" href="ajout_article.php">Ajout article</a></p>
         <table id="tableauGestionArticles" class="container">
 					<thead>
 						<tr>
@@ -22,7 +21,10 @@
 						<?php foreach ($articles as $article):?>
 						<tr>
 							<td><?=$article['titre']?></td>
-							<td><?=$article['description']?></td>
+              <td>
+                <?=substr($article['description'],0, 200)."..."?>
+                <p><a class="button"  href="../article.php?id=<?= $article['id'] ?>">Lire la suite</a></p>
+              </td>
 							<td><img src="../img/<?=$article['image']?>"></td>
 							<td><?= strftime('%d %h %Y', strtotime($article['date_creation']));?></td>
 							<td><?php if ($article['publie'] == 1): ?>Oui

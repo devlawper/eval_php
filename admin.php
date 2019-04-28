@@ -15,7 +15,7 @@ require "database.php";
 
 		foreach ($admins as $admin) {
 			if($login == $admin['login'] && password_verify($mdps, $admin['password']) ){
-				$_SESSION['admin'] = 'tata';
+				$_SESSION['admin'] = 'FitDev';
 			header('location:admin/tableau_de_bord.php');
 			}
 			else {

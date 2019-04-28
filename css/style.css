@@ -218,7 +218,10 @@ footer img {
   float: left;
 }
 
-/* ADMIN */
+
+/*///////////////*/
+/*//// ADMIN ////*/
+/*///////////////*/
 
 /* Connection */
 .connectAdmin p {
@@ -257,25 +260,7 @@ footer img {
   list-style-type: none;
 }
 
-/* Gestion articles */
-#tableauGestionArticles,
-#tableauGestionComm {
-  border: 1px solid #304D66;
-  border-collapse: collapse;
-}
-#tableauGestionArticles td,
-#tableauGestionComm td,
-#tableauGestionArticles th,
-#tableauGestionComm th {
-  border: 1px solid #304D66;
-  height: 5rem;
-}
-#tableauGestionArticles img {
-  width: 100%;
-}
-
-/***ajout du css au tableau de bord a modérer***/
-
+/* Tableau de bord */
 #moderer, #statistiques{
   border: 2px solid black;
   padding: 2%;
@@ -295,4 +280,27 @@ footer img {
   margin-bottom: 3%;
   display: flex;
   justify-content: space-around;
+}
+
+/* Gestion articles et commentaires */
+#tableauGestionArticles,
+#tableauGestionComm {
+  border: 1px solid #304D66;
+  border-collapse: collapse;
+  margin-bottom: 3%;
+}
+#tableauGestionArticles td,
+#tableauGestionComm td,
+#tableauGestionArticles th,
+#tableauGestionComm th {
+  border: 1px solid #304D66;
+  height: 5rem;
+  text-align: center;
+  padding: 0.2rem;
+}
+#tableauGestionArticles img {
+  width: 100%;
+}
+.button_light {
+  padding: 0.5% 2%;
 }

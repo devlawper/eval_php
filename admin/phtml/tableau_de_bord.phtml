@@ -1,8 +1,8 @@
 <body>
   <main class="container">
   <?php if (isset($_SESSION['admin'])): ?>
-    <h1>Bienvenue Admin</h1>
-    <a href="deconnecte.php">Déconnexion</a>
+    <h1>Bienvenue <?= $_SESSION['admin'] ?></h1>
+    <a class="button button_light" href="deconnecte.php">Déconnexion</a>
   	<h2>Tableau de bord</h2>
     <h3>A Moderer</h3>
     <section id="moderer">
