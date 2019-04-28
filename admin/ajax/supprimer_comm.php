@@ -2,7 +2,7 @@
 
 require "../../database.php";
 
-$id=$_GET['id'];
+$id=$_POST['id'];
 
 $query=$bdd->prepare(
   "DELETE FROM commentaires
@@ -13,4 +13,5 @@ $query=$bdd->prepare(
 	"UPDATE comm_supprime
 	SET compteur= compteur + 1");
 	$query->execute();
-header('location:../gestion_comm.php');
+
+  echo json_encode($id);

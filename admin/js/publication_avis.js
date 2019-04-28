@@ -26,8 +26,24 @@ function publierDepublier(){
 	}
 }
 
+/////////////////////////////
+//// SUPPRESSION ARTICLE ///
+////////////////////////////
+function supprimer() {
+	let id = $(this).data('id');
+	confirm("Voulez vous vraiment supprimer ce commentaire ?");
+  if (true) {
+    $.post('ajax/supprimer_comm.php',{id:id}, confirmerSuppression);
+  }
+	function confirmerSuppression(reponse) {
+		reponse = JSON.parse(reponse);
+		$("#comm"+reponse).remove();
+	}
+}
+
 // *** Gestionnaire d'évenements ***
 $(function(){
 
 		$(".publication").on("click", publierDepublier);
+		$(".supprimer").on("click", supprimer);
 })

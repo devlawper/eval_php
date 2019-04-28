@@ -17,7 +17,7 @@
 				</thead>
 				<tbody>
 				  <?php foreach ($commentaires as $commentaire):?>
-					<tr>
+					<tr id="comm<?= $commentaire['id'] ?>">
 						<td><?=$commentaire['pseudo']?></td>
 						<td><?=$commentaire['email']?></td>
 						<td><?=$commentaire['commentaire']?></td>
@@ -33,7 +33,7 @@
               <?php else: ?>
                 <span data-id="<?= $commentaire['id'] ?>" class="publication" id="num<?= $commentaire['id']?>">Dépublier</span><br>
               <?php endif; ?>
-                <a href="ajax/supprimer_comm.php?id=<?= $commentaire['id'] ?>">Supprimer</a>
+                <span data-id="<?= $commentaire['id'] ?>" class="supprimer" >Supprimer</span>
 						</td>
 					</tr>
 				<?php endforeach;?>
