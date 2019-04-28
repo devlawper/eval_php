@@ -27,19 +27,21 @@
               </td>
 							<td><img src="../img/<?=$article['image']?>"></td>
 							<td><?= strftime('%d %h %Y', strtotime($article['date_creation']));?></td>
-							<td><?php if ($article['publie'] == 1): ?>Oui
-              <?php else: ?>Non
-              <?php endif; ?></td>
+							<td>
+                <?php if ($article['publie'] == 1): ?>Oui
+                <?php else: ?>Non
+                <?php endif; ?>
+              </td>
 							<td><?=$article['nb_visites']?></td>
 							<td><?=$article['nb_comm']?></td>
 							<td id="publication">
-                <?php if ($article['publie'] == 0): ?>
-                  <a href="ajax/publier_article.php?id=<?= $article['id'] ?>">Valider</a><br>
-                <?php else: ?>
-                  <a href="ajax/depublier_article.php?id=<?= $article['id'] ?>">Dépublier</a><br>
-                <?php endif; ?>
-                  <a href="ajax/supprimer_article.php?id=<?= $article['id'] ?>">Supprimer</a>
-                  <a href="modif_article.php?id=<?= $article['id'] ?>">Modifer</a>
+              <?php if ($article['publie'] == 0): ?>
+                <span data-id="<?= $article['id'] ?>" class="publication" id="num<?= $article['id']?>">Publier</span><br>
+              <?php else: ?>
+                <span data-id="<?= $article['id'] ?>" class="publication" id="num<?= $article['id']?>">Dépublier</span><br>
+              <?php endif; ?>
+                <a href="ajax/supprimer_article.php?id=<?= $article['id'] ?>">Supprimer</a>
+                <a href="modif_article.php?id=<?= $article['id'] ?>">Modifer</a>
 							</td>
 						</tr>
 						<?php endforeach;?>
@@ -50,4 +52,5 @@
     endif; ?>
 	</main>
 </body>
+<script src="js/publication_article.js"type="text/javascript"></script>
 </html>

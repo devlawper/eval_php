@@ -1,12 +1,14 @@
 <?php
 require "../../database.php";
 
-$id=$_GET['id'];
+$id=$_POST['id'];
+$idSpan = $_POST['idSpan'];
 
 // *** Modif valeur de publication dans la base de donnée ***
 $query=$bdd->prepare(
 	"UPDATE articles
 	SET publie=?
 	WHERE id=?");
-		$query->execute(array('1', $id));
-		header('location:../gestion_article.php');
+$query->execute(array('1', $id));
+
+echo json_encode($idSpan);

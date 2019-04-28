@@ -9,10 +9,10 @@ function publierDepublier(){
 	let idSpan = $(this).attr('id');
 
 	if (text == 'Publier') {
-		$.post("ajax/publier_comm.php",{id:id, text:text, idSpan:idSpan},confirmPublier);
+		$.post("ajax/publier_comm.php",{id:id, idSpan:idSpan},confirmPublier);
 	}
 	else {
-		$.post("ajax/depublier_comm.php",{id:id, idSpan:idSpan, text:text},confirmDepublier);
+		$.post("ajax/depublier_comm.php",{id:id, idSpan:idSpan},confirmDepublier);
 	}
 	function confirmPublier(reponse){
 		reponse = JSON.parse(reponse);

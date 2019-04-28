@@ -1,8 +1,7 @@
 <?php
 require "../../database.php";
 
-$id=$_POST['id'];
-$text = $_POST['text'];
+$id = $_POST['id'];
 $idSpan = $_POST['idSpan'];
 
 // *** Modif valeur de publication dans la base de donnée ***
