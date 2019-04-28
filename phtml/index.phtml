@@ -6,6 +6,7 @@
         <p><a href="article.php?id=<?= $article['id'] ?>"><i class="fas fa-angle-right"></i> <?= substr($article['titre'], 0, 40)."..." ?></a></p>
       <?php endforeach; ?>
     </article>
+    
     <h2><i class="fas fa-comments"></i> Les derniers commentaires</h2>
     <article class="last_comm">
       <?php foreach ($commentaires as $commentaire): ?>

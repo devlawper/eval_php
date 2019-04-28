@@ -7,7 +7,7 @@ function affichageComm(commentaires) {
   commentaires = JSON.parse(commentaires);
   $(".last_comm").empty();
   for (var i = 0; i < commentaires.length; i++) {
-    $(".last_comm").append("<p>" + commentaires[i][0] + "</p>");
+    $(".last_comm").append('<p><i class="fas fa-angle-right"></i> ' + commentaires[i][0].substr(0,40) + "...</p>");
   }
 }
 

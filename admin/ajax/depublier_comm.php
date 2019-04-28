@@ -1,6 +1,9 @@
 <?php
 require "../../database.php";
-$id=$_GET['id'];
+
+$id=$_POST['id'];
+$text = $_POST['text'];
+$idSpan = $_POST['idSpan'];
 
 // *** Modif valeur de publication dans la base de donnée ***
 $query=$bdd->prepare(
@@ -17,4 +20,5 @@ $query = $bdd -> prepare(
   SET nb_comm = nb_comm - 1
   WHERE commentaires.id = ?");
 $query -> execute(array($id));
-		header('location:../gestion_comm.php');
+
+echo json_encode($idSpan);

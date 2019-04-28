@@ -24,14 +24,15 @@
 						<td><?=$commentaire['commentaire']?></td>
 						<td><?=$commentaire['titre']?></td>
 						<td><?= strftime('%d %h %Y', strtotime($commentaire['date']));?></td>
-            <td><?php if ($commentaire['publie'] == 1): ?>Oui
-            <?php else: ?>Non
-            <?php endif; ?></td>
+            <td class="publie">
+              <?php if ($commentaire['publie'] == 1): ?>Oui
+              <?php else: ?>Non
+              <?php endif; ?></td>
             <td id="publication">
               <?php if ($commentaire['publie'] == 0): ?>
-                <a href="ajax/publier_comm.php?id=<?= $commentaire['id'] ?>">Valider</a><br>
+                <span data-id="<?= $commentaire['id'] ?>" class="publication" id="num<?= $commentaire['id']?>">Publier</span><br>
               <?php else: ?>
-                <a href="ajax/depublier_comm.php?id=<?= $commentaire['id'] ?>">Dépublier</a><br>
+                <span data-id="<?= $commentaire['id'] ?>" class="publication" id="num<?= $commentaire['id']?>">Dépublier</span><br>
               <?php endif; ?>
                 <a href="ajax/supprimer_comm.php?id=<?= $commentaire['id'] ?>">Supprimer</a>
 						</td>

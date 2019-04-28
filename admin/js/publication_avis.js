@@ -1,36 +1,33 @@
 "use strict"
-
 // *** Fonctions ***
 
-////////////////////////////////
-//// PUBLICATION COMMENTAIRE ///
-function publier(){
+/////////////////////////////////////////////////
+//// PUBLICATION ou DEPUBLICATION COMMENTAIRE ///
+function publierDepublier(){
 	let id = $(this).data('id');
-	$.post("ajax/publier_comm.php",{id:id},confirmPublier)
-}
+	let text = $(this).text();
+	let idSpan = $(this).attr('id');
 
-function confirmPublier(){
-	$(".publication").text("Dépublier");
-}
-
-////////////////////////////////
-// DEPUBLICATION COMMENTAIRE ///
-function depublier(){
-	let id = $(this).data('id');
-	$.post("ajax/depublier_comm.php",{id:id},confirmDepublier)
-}
-
-function confirmDepublier(){
-	$(".publication").text("Publier");
+	if (text == 'Publier') {
+		$.post("ajax/publier_comm.php",{id:id, text:text, idSpan:idSpan},confirmPublier);
+	}
+	else {
+		$.post("ajax/depublier_comm.php",{id:id, idSpan:idSpan, text:text},confirmDepublier);
+	}
+	function confirmPublier(reponse){
+		reponse = JSON.parse(reponse);
+		$('#'+reponse).text("Dépublier");
+		$('#'+reponse).parent().prev().text('Oui');
+	}
+	function confirmDepublier(reponse){
+		reponse = JSON.parse(reponse);
+		$('#'+reponse).text("Publier");
+		$('#'+reponse).parent().prev().text('Non');
+	}
 }
 
 // *** Gestionnaire d'évenements ***
 $(function(){
 
-	if ($(".publication").text() == "Dépublier") {
-		$(".publication").on("click", depublier);
-	}
-	else {
-		$(".publication").on("click", publier);
-	}
+		$(".publication").on("click", publierDepublier);
 })
