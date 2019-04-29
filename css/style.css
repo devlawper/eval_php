@@ -272,6 +272,12 @@ footer img {
 #tableauGestionComm th:not(:last-child) {
   border-right: 1px solid white;
 }
+#publication span {
+  cursor: pointer;
+}
+#publication span:hover {
+  text-decoration: underline;
+}
 #statistiques > article {
   border: 1px solid #304D66;
   padding: 1%;

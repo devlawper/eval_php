@@ -37,7 +37,7 @@ function supprimer() {
     $.post('ajax/supprimer_comm.php',{id:id}, confirmerSuppression);
   }
 }
-// Réponses
+// Réponse
 function confirmerSuppression(reponse) {
 	reponse = JSON.parse(reponse);
 	$("#comm"+reponse).remove();
