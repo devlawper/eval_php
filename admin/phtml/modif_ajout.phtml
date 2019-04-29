@@ -11,7 +11,7 @@
 				<legend>Ajouter un article</legend>
   <?php endif; ?>
 				<p>
-					<label>titre</label>
+					<label>Titre</label>
 					<input class="name" type="text" name="titre" value="<?=$titre?>"/>
 				</p>
 				<p>
@@ -19,20 +19,20 @@
 					<textarea name="desc" rows="8" cols="80" ><?=$desc?></textarea>
 		    </p>
 				<p>
-					<label>photo</label>
+					<label>Photo</label>
 					<input type="file" name="image" value="<?=$image?>">
 				</p>
 				<p>
 					<label>Publié</label>
 					<?php if (isset($_GET['id'])): ?>
-						<input type="radio" name="publie" value="1" <?php if($article["publie"]==1){echo "checked";} ?>>oui
-						<input type="radio" name="publie" value="0" <?php if($article["publie"]==0){echo "checked";} ?>>non
+						<input type="radio" name="publie" value="1" <?php if($article["publie"]==1){echo "checked";} ?>>Oui
+						<input type="radio" name="publie" value="0" <?php if($article["publie"]==0){echo "checked";} ?>>Non
 		      <?php else: ?>
-						<input type="radio" name="publie" value="1">oui
-						<input type="radio" name="publie" value="0">non
+						<input type="radio" name="publie" value="1">Oui
+						<input type="radio" name="publie" value="0">Non
 		      <?php endif; ?>
 				</p>
-				<button type="submit" value="ajouter">ajouter</button>
+				<button type="submit" value="ajouter">Ajouter</button>
 			</fieldset>
 <?php else:
 	header('location:../admin.php');

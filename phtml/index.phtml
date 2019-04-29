@@ -6,7 +6,7 @@
         <p><a href="article.php?id=<?= $article['id'] ?>"><i class="fas fa-angle-right"></i> <?= substr($article['titre'], 0, 40)."..." ?></a></p>
       <?php endforeach; ?>
     </article>
-    
+
     <h2><i class="fas fa-comments"></i> Les derniers commentaires</h2>
     <article class="last_comm">
       <?php foreach ($commentaires as $commentaire): ?>
@@ -22,7 +22,7 @@
       <h2><?= $promu['titre'] ?></h2>
       <p><?= substr($promu['description'], 0, 200)."..." ?></p>
       <p>
-        <span class="bulle"><i class="fas fa-comments"></i> <span><?= $promu['nb_comm'] ?></span></span>
+        <span class="bulle"><i class="fas fa-comments"></i> <span class="nb_comm nb_comm<?= $promu['id'] ?>" data-id='<?= $promu['id'] ?>'><?= $promu['nb_comm'] ?></span></span>
         <span class="bulle"><i class="fas fa-eye"></i> <span><?= $promu['nb_visites'] ?></span></span>
       </p>
       <a class="button" href="article.php?id=<?= $promu['id'] ?>">Lire la suite</a>
