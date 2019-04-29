@@ -299,6 +299,9 @@ footer img {
 }
 
 /* Gestion articles et commentaires */
+.ajoutModifArt {
+  margin-bottom: 3%;
+}
 #tableauGestionArticles,
 #tableauGestionComm {
   border: 1px solid #304D66;

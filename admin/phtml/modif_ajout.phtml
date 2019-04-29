@@ -2,11 +2,11 @@
 	<?php if (isset($_SESSION['admin'])): ?>
 	<section class="container">
   <?php if (isset($_GET['id'])): ?>
-    <form action="modif_article.php?id=<?= $_GET['id'] ?>" method="post" enctype="multipart/form-data">
+    <form class="ajoutModifArt" action="modif_article.php?id=<?= $_GET['id'] ?>" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Modifier un article</legend>
   <?php else: ?>
-    <form action="ajout_article.php" method="post" enctype="multipart/form-data">
+    <form class="ajoutModifArt" action="ajout_article.php" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Ajouter un article</legend>
   <?php endif; ?>
@@ -35,7 +35,7 @@
 						<input type="radio" name="publie" value="0">Non
 		      <?php endif; ?>
 				</p>
-				<button type="submit" value="ajouter">Ajouter</button>
+				<button class="button button_light" type="submit" value="ajouter">Ajouter</button>
 			</fieldset>
 		</form>
 <?php else:
