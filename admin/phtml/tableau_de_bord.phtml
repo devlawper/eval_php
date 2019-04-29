@@ -4,7 +4,7 @@
     <h1>Bienvenue <?= $_SESSION['admin'] ?></h1>
     <a class="button button_light" href="deconnecte.php">Déconnexion</a>
   	<h2>Tableau de bord</h2>
-    <h3>A Moderer</h3>
+    <h3>A Modérer</h3>
     <section id="moderer">
       <table id="tableauGestionComm" class="container">
         <thead>
@@ -40,40 +40,43 @@
     <section id="statistiques">
       <article>
         <h4>Mes articles les plus vus</h4>
-        <?php foreach ($articles as $article):?>
-        <p><?=$article['titre']?><br>
-        Nombre de vue(s) : <?=$article['nb_visites']?></p>
-      <?php endforeach;?>
-      </article>
-    <div id="statArticle">
+        <ul>
+          <?php foreach ($articles as $article):?>
+          <li><?=$article['titre']?><br>
+          Nombre de vue(s) : <?=$article['nb_visites']?></li>
+          <?php endforeach;?>
+        </ul>
+    </article>
+    <article id="statArticle">
       <article>
-        <h4>Nombres article(s) publiés</h4>
-        <p><?=$publArticles['nb_publie']?></p>
-      </article>
-      <article>
-        <h4>Nombres article(s) non publiés</h4>
-        <p><?=$non_publArticles['nb_non_publie']?></p>
-      </article>
-    </div>
-    <div id="commentaires">
-      <article>
-        <h4>Nombre de visite(s) sur le site</h4>
-        <p id="visites"><?= $visites['nb_visiteurs'] ?></p>
-          <a class="button reinit" >Réinitialiser</a>
+        <h4>Nombres article(s) publiés :</h4>
+        <p><i class="fas fa-angle-right"></i> <?=$publArticles['nb_publie']?></p>
       </article>
       <article>
-        <h4>Nombres de commentaire(s)</h4>
-        <p><?=$nb_commentaires['nb_comm']?></p>
+        <h4>Nombres article(s) non publiés :</h4>
+        <p><i class="fas fa-angle-right"></i> <?=$non_publArticles['nb_non_publie']?></p>
+      </article>
+    </article>
+    <article id="commentaires">
+      <article>
+        <h4>Nombre de visite(s) sur le site :</h4>
+        <p id="visites"><i class="fas fa-angle-right"></i> <?= $visites['nb_visiteurs'] ?></p>
+        <p><a class="button reinit" >Réinitialiser</a></p>
+
       </article>
       <article>
-        <h4>Nombres de commentaire(s) en attente de validation</h4>
-        <p><?=$publ_non_commentaires['nb_pucomm']?></p>
+        <h4>Nombres de commentaire(s) :</h4>
+        <p><i class="fas fa-angle-right"></i> <?=$nb_commentaires['nb_comm']?></p>
       </article>
       <article>
-        <h4>Nombres de commentaires supprimé(s)</h4>
-        <p><?= $comm_suppr['compteur']?></p>
+        <h4>Nombres de commentaire(s) en attente de validation :</h4>
+        <p><i class="fas fa-angle-right"></i> <?=$publ_non_commentaires['nb_pucomm']?></p>
       </article>
-    </div>
+      <article>
+        <h4>Nombres de commentaires supprimé(s) :</h4>
+        <p><i class="fas fa-angle-right"></i> <?= $comm_suppr['compteur']?></p>
+      </article>
+    </article>
     </section>
     <div id="gestion_art_comm">
       <a class="button" href="gestion_article.php">Gestion Articles</a>

@@ -262,13 +262,23 @@ footer img {
 
 /* Tableau de bord */
 #moderer, #statistiques{
-  border: 2px solid black;
+  border: 2px solid #304D66;
   padding: 2%;
 }
-#statistiques article {
-  border: 1px solid black;
-  padding: 5%;
-  margin: 5%;
+#tableauGestionComm th {
+  background: #304D66;
+  color: white;
+}
+#tableauGestionComm th:not(:last-child) {
+  border-right: 1px solid white;
+}
+#statistiques > article {
+  border: 1px solid #304D66;
+  padding: 1%;
+  margin: 1%;
+}
+#statistiques > article > article:not(:last-child) {
+  border-bottom: 1px solid #304D66;
 }
 #statistiques{
   display: flex;
