@@ -35,8 +35,14 @@
 						<input type="radio" name="publie" value="0">Non
 		      <?php endif; ?>
 				</p>
-				<button class="button button_light" type="submit" value="ajouter">Ajouter</button>
-			</fieldset>
+				<?php if (isset($_GET['id'])): ?>
+					<button class="button button_light" type="submit" value="ajouter">Modifer</button>
+				</fieldset>
+			  <?php else: ?>
+					<button class="button button_light" type="submit" value="ajouter">Ajouter</button>
+  			</fieldset>
+			  <?php endif; ?>
+
 		</form>
 <?php else:
 	header('location:../admin.php');
