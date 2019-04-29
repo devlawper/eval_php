@@ -23,7 +23,7 @@
 						<td><?=$commentaire['commentaire']?></td>
 						<td><?=$commentaire['titre']?></td>
 						<td><?= strftime('%d %h %Y', strtotime($commentaire['date']));?></td>
-            <td class="publie">
+            <td class="publie<?= $commentaire['id']?>">
               <?php if ($commentaire['publie'] == 1): ?>Oui
               <?php else: ?>Non
               <?php endif; ?></td>

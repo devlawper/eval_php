@@ -6,24 +6,25 @@
 function publierDepublier(){
 	let id = $(this).data('id');
 	let text = $(this).text();
-	let idSpan = $(this).attr('id');
 
 	if (text == 'Publier') {
-		$.post("ajax/publier_comm.php",{id:id, idSpan:idSpan},confirmPublier);
+		$.post("ajax/publier_comm.php",{id:id},confirmPublier);
 	}
 	else {
-		$.post("ajax/depublier_comm.php",{id:id, idSpan:idSpan},confirmDepublier);
+		$.post("ajax/depublier_comm.php",{id:id},confirmDepublier);
 	}
-	function confirmPublier(reponse){
-		reponse = JSON.parse(reponse);
-		$('#'+reponse).text("Dépublier");
-		$('#'+reponse).parent().prev().text('Oui');
-	}
-	function confirmDepublier(reponse){
-		reponse = JSON.parse(reponse);
-		$('#'+reponse).text("Publier");
-		$('#'+reponse).parent().prev().text('Non');
-	}
+}
+// Réponses
+function confirmPublier(reponse){
+	reponse = JSON.parse(reponse);
+	$('#num'+reponse).text("Dépublier");
+	$('.publie'+reponse).text('Oui');
+	$("#commValid"+reponse).remove();
+}
+function confirmDepublier(reponse){
+	reponse = JSON.parse(reponse);
+	$('#num'+reponse).text("Publier");
+	$('.publie'+reponse).text('Non');
 }
 
 /////////////////////////////
@@ -31,14 +32,15 @@ function publierDepublier(){
 ////////////////////////////
 function supprimer() {
 	let id = $(this).data('id');
-	confirm("Voulez vous vraiment supprimer ce commentaire ?");
-  if (true) {
+
+  if (confirm("Voulez vous vraiment supprimer ce commentaire ?")) {
     $.post('ajax/supprimer_comm.php',{id:id}, confirmerSuppression);
   }
-	function confirmerSuppression(reponse) {
-		reponse = JSON.parse(reponse);
-		$("#comm"+reponse).remove();
-	}
+}
+// Réponses
+function confirmerSuppression(reponse) {
+	reponse = JSON.parse(reponse);
+	$("#comm"+reponse).remove();
 }
 
 // *** Gestionnaire d'évenements ***

@@ -7,24 +7,24 @@
 function publierDepublier(){
 	let id = $(this).data('id');
 	let text = $(this).text();
-	let idSpan = $(this).attr('id');
 
 	if (text == 'Publier') {
-		$.post("ajax/publier_article.php",{id:id, idSpan:idSpan},confirmPublier);
+		$.post("ajax/publier_article.php",{id:id},confirmPublier);
 	}
 	else {
-		$.post("ajax/depublier_article.php",{id:id, idSpan:idSpan},confirmDepublier);
+		$.post("ajax/depublier_article.php",{id:id},confirmDepublier);
 	}
-	function confirmPublier(reponse){
-		reponse = JSON.parse(reponse);
-		$('#'+reponse).text("Dépublier");
-		$('#'+reponse).parent().prev().prev().prev().text('Oui');
-	}
-	function confirmDepublier(reponse){
-		reponse = JSON.parse(reponse);
-		$('#'+reponse).text("Publier");
-		$('#'+reponse).parent().prev().prev().prev().text('Non');
-	}
+}
+// Réponses
+function confirmPublier(reponse){
+	reponse = JSON.parse(reponse);
+	$('#num'+reponse).text("Dépublier");
+	$('.publie'+reponse).text('Oui');
+}
+function confirmDepublier(reponse){
+	reponse = JSON.parse(reponse);
+	$('#num'+reponse).text("Publier");
+	$('.publie'+reponse).text('Non');
 }
 
 /////////////////////////////
@@ -32,19 +32,19 @@ function publierDepublier(){
 ////////////////////////////
 function supprimer() {
 	let id = $(this).data('id');
-	confirm("Voulez vous vraiment supprimer cet article ?");
-  if (true) {
+
+  if (confirm("Voulez vous vraiment supprimer cet article ?")) {
     $.post('ajax/supprimer_article.php',{id:id}, confirmerSuppression);
   }
-	function confirmerSuppression(reponse) {
-		reponse = JSON.parse(reponse);
-		$("#art"+reponse).remove();
-	}
+}
+// Réponses
+function confirmerSuppression(reponse) {
+	reponse = JSON.parse(reponse);
+	$("#art"+reponse).remove();
 }
 
 // *** Gestionnaire d'évenements ***
 $(function(){
-
 		$(".publication").on("click", publierDepublier);
 		$(".supprimer").on("click", supprimer);
 })

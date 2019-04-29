@@ -27,7 +27,7 @@
               </td>
 							<td><img src="../img/<?=$article['image']?>"></td>
 							<td><?= strftime('%d %h %Y', strtotime($article['date_creation']));?></td>
-							<td>
+							<td class="publie<?= $article['id'] ?>">
                 <?php if ($article['publie'] == 1): ?>Oui
                 <?php else: ?>Non
                 <?php endif; ?>
