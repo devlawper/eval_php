@@ -15,9 +15,12 @@
 					<input class="name" type="text" name="titre" value="<?=$titre?>"/>
 				</p>
 				<p>
-					<label>Description</label></p>
-					<textarea name="desc" rows="8" cols="80" ><?=$desc?></textarea>
-		    </p>
+          <label for="description">Description</label>
+          <span class="editor">
+            <input id="description" type="hidden" name="description" value="<?=$desc?>">
+            <trix-editor input="description"></trix-editor>
+          </span>
+        </p>
 				<p>
 					<label>Photo</label>
 					<input type="file" name="image" value="<?=$image?>">
@@ -34,6 +37,7 @@
 				</p>
 				<button type="submit" value="ajouter">Ajouter</button>
 			</fieldset>
+		</form>
 <?php else:
 	header('location:../admin.php');
 endif; ?>

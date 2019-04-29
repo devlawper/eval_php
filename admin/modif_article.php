@@ -20,13 +20,19 @@ $image=$article['image'];
  if(isset($_POST['titre'])){
 	$titre=$_POST['titre'];
 	$desc=$_POST['description'];
+  if ($_FILES['image']['name'] == '') {
+    $photo_chargee=$article['image'];
+  }
+  else {
+    $photo_chargee = htmlspecialchars($_FILES['image']['name']);
+  	$image = move_uploaded_file($_FILES['image']['tmp_name'], "../img/".basename($photo_chargee));
+  }
 	$publie=$_POST['publie'];
-	$image=$_POST['image'];
 	$query=$bdd->prepare(
     "UPDATE articles
-    SET titre=?, description=?, image=? date_article=?, publie=?
+    SET titre=?, description=?, image=?, publie=?
 		WHERE id=?");
-		$query->execute(array($titre,$desc,$image,NOW(),$publie,$id));
+		$query->execute(array($titre,$desc,$photo_chargee,$publie,$id));
     header("location:gestion_article.php");
 	}
 

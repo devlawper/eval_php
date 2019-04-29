@@ -11,7 +11,7 @@ $publie='';
 // *** Ajout de l'article en base de donnée avec vérification préalable ***
 if(isset($_POST['titre'])){
 	$titre=$_POST['titre'];
-	$desc=$_POST['desc'];
+	$desc=$_POST['description'];
 	$photo_chargee = htmlspecialchars($_FILES['image']['name']);
 	$image = move_uploaded_file($_FILES['image']['tmp_name'], "../img/".basename($photo_chargee));
 	$publie=$_POST['publie'];
