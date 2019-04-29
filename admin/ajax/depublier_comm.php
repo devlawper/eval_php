@@ -19,4 +19,21 @@ $query = $bdd -> prepare(
   WHERE commentaires.id = ?");
 $query -> execute(array($id));
 
-echo json_encode($id);
+//affichage nombres de commentaires
+
+$query = $bdd -> prepare(
+  "SELECT COUNT(*) AS nb_comm
+  FROM commentaires");
+$query -> execute();
+$nb_commentaires = $query -> fetch();
+
+//affichage de nombres de commentaires en attente de validation
+
+$query = $bdd -> prepare(
+  "SELECT COUNT(*) AS nb_pucomm
+  FROM commentaires
+  WHERE publie=0");
+$query -> execute();
+$publ_non_commentaires = $query -> fetch();
+
+echo json_encode([$id, $nb_commentaires, $publ_non_commentaires]);

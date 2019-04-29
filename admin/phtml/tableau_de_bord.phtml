@@ -18,7 +18,7 @@
         </thead>
         <tbody>
         <?php foreach ($commentaires as $commentaire):?>
-          <tr id="comm<?= $commentaire['id'] ?>">
+          <tr id="comm<?= $commentaire['id'] ?>" class="commValid<?= $commentaire['id'] ?>">
             <td><?=$commentaire['pseudo']?></td>
             <td><?=$commentaire['email']?></td>
             <td><?=$commentaire['commentaire']?></td>
@@ -66,15 +66,15 @@
       </article>
       <article>
         <h4>Nombres de commentaire(s) :</h4>
-        <p><i class="fas fa-angle-right"></i> <?=$nb_commentaires['nb_comm']?></p>
+        <p><i class="fas fa-angle-right"></i> <span class="nbCommPub"><?=$nb_commentaires['nb_comm']?></span></p>
       </article>
       <article>
         <h4>Nombres de commentaire(s) en attente de validation :</h4>
-        <p><i class="fas fa-angle-right"></i> <?=$publ_non_commentaires['nb_pucomm']?></p>
+        <p><i class="fas fa-angle-right"></i> <span class="nbCommNonPub"><?=$publ_non_commentaires['nb_pucomm']?></span></p>
       </article>
       <article>
         <h4>Nombres de commentaires supprimé(s) :</h4>
-        <p><i class="fas fa-angle-right"></i> <?= $comm_suppr['compteur']?></p>
+        <p><i class="fas fa-angle-right"></i> <span class="nbCommSuppr"><?= $comm_suppr['compteur']?></span></p>
       </article>
     </article>
     </section>

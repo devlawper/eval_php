@@ -17,14 +17,22 @@ function publierDepublier(){
 // Réponses
 function confirmPublier(reponse){
 	reponse = JSON.parse(reponse);
-	$('#num'+reponse).text("Dépublier");
-	$('.publie'+reponse).text('Oui');
-	$("#commValid"+reponse).remove();
+	console.log(reponse);
+	console.log(reponse[0]);
+	$('#num'+reponse[0]).text("Dépublier");
+	$('.publie'+reponse[0]).text('Oui');
+	$(".commValid"+reponse[0]).remove();
+	$(".nbCommPub").text(reponse[1]['nb_comm']);
+	$(".nbCommNonPub").text(reponse[2]['nb_pucomm']);
 }
 function confirmDepublier(reponse){
 	reponse = JSON.parse(reponse);
-	$('#num'+reponse).text("Publier");
-	$('.publie'+reponse).text('Non');
+	console.log(reponse);
+	console.log(reponse[0]);
+	$('#num'+reponse[0]).text("Publier");
+	$('.publie'+reponse[0]).text('Non');
+	$(".nbCommPub").text(reponse[1]['nb_comm']);
+	$(".nbCommNonPub").text(reponse[2]['nb_pucomm']);
 }
 
 /////////////////////////////
@@ -40,7 +48,10 @@ function supprimer() {
 // Réponse
 function confirmerSuppression(reponse) {
 	reponse = JSON.parse(reponse);
-	$("#comm"+reponse).remove();
+	$("#comm"+reponse[0]).remove();
+	$(".nbCommPub").text(reponse[1]['nb_comm']);
+	$(".nbCommNonPub").text(reponse[2]['nb_pucomm']);
+	$(".nbCommSuppr").text(reponse[3]['compteur']);
 }
 
 // *** Gestionnaire d'évenements ***

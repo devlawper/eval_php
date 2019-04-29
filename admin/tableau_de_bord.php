@@ -14,7 +14,8 @@ $query=$bdd->prepare(
   FROM commentaires
   INNER JOIN articles
   ON commentaires.id_article=articles.id
-  WHERE commentaires.publie = 0");
+  WHERE commentaires.publie = 0
+  ORDER BY id DESC");
  $query->execute();
  $commentaires=$query->fetchAll();
 
